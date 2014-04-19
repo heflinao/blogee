@@ -1,4 +1,7 @@
 class PostsController < ApplicationController
+
+	before_action :get_post, only: [:show, :destroy, :edit, :update]
+
   def index
 		@posts = Post.all
   end
@@ -17,24 +20,14 @@ class PostsController < ApplicationController
 			render "new"
 		end
   end
-  
-  def show
-    @post = Post.find(params[:id])
-  end
  
 	def destroy
-		@post = Post.find(params[:id])
 		@post.destroy
 		flash[:success] = "Project has been destroyed."
 		redirect_to posts_path
 	end
 
-	def edit
-		@post = Post.find(params[:id])
-	end
-
 	def update
-		@post = Post.find(params[:id])
 		@post.update(post_params)
 
     if @post.save
@@ -48,6 +41,10 @@ class PostsController < ApplicationController
 
   private
   
+	def get_post
+		@post = Post.find(params[:id])
+	end
+
   def post_params
     params.require(:post).permit(:title, :content, :author)
   end
