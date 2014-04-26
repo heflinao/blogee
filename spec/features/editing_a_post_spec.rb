@@ -31,6 +31,7 @@ feature 'Editing a post' do
     fill_in 'Author', with: ''
     click_button 'Save'
 
+    #expect(current_path).to eq edit_post_path(post)
     expect(page).to have_css('.alert.alert-error')
   end
 end

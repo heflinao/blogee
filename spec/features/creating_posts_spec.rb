@@ -25,13 +25,14 @@ feature 'Creating posts' do
   end
 
   scenario 'with invalid attributes' do
-    "Please Finish: Creating posts with valid attributes before starting"
     # visit the posts path in the browser
     visit posts_path
     # find a link titled New Post and click it
     click_link 'New Post'
     # find the button called Save and click it
     click_button 'Save'
+    # assert that we are still on the form
+    #expect(current_path).to eq new_post_path
     # assert that we are getting the error flash
     expect(page).to have_css('.alert.alert-error')
   end
