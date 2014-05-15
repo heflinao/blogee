@@ -30,6 +30,13 @@ class CommentsController < ApplicationController
 		end
 	end
 
+	def destroy
+		@comment.destroy
+		flash[:notice] = "Comment has been deleted."
+
+		redirect_to @post
+	end
+
 	private
 	def get_post
 		@post = Post.find(params[:post_id])

@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :comment do
-		sequence(:author) { |n| "Bugs Bunny#{n}" }
-    sequence(:content) { |n|  "That's all folks!#{n}" }
-   end
+    sequence(:author) { |n| "Randy #{n} Savage" }
+    content "Lorem ipsum dolor site amet"
+  end
 end
