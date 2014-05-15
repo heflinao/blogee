@@ -1,0 +1,6 @@
+<div id="comment">
+	<h2><%= @comment.author %></h2>
+	<%= simple_format(@comment.content) %>
+
+	<%= link_to 'Edit Comment', edit_post_comment_path(@post, @comment) %>
+</div>

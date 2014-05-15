@@ -1,6 +1,15 @@
 <h1 id="title"><%= @post.title %></h1>
-<p id="content"><%= @post.content %></p>
-<p id="author"><%= @post.author %></p>
 
 <%= link_to 'Edit Post', edit_post_path(@post) %>
 <%= link_to 'Delete Post', post_path(@post), method: :delete %>
+
+<p id="content"><%= @post.content %></p>
+<p id="author"><%= @post.author %></p>
+
+
+<div id="comment" class="comments">
+	<%= link_to 'Add Comment', new_post_comment_path(@post) %>
+	<% @post.comments.each do |comment| %>
+		<p><%= link_to comment.author, post_comment_path(@post, comment) %> says <%= comment.content %></p>
+	<% end %>
+</div>
