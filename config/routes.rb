@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   end
 	resources :users
   root to: "posts#index"
+	get "/signin", to: "sessions#new"
+	post "/signin", to: "sessions#create"
 end
