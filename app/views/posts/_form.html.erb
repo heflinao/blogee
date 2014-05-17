@@ -1,8 +1,11 @@
-<%= form_for @post do |f| %>
+<%= form_for @post, html: { multipart: true } do |f| %>
 	<%= f.label :title %>
 	<%= f.text_field :title %>
-  Author: <%= @post.user.username %>
+	<%= f.label :author %>
+  <%= f.text_field :author, :value => @post.user.username %>
 	<%= f.label :content %>
 	<%= f.text_field :content %>
+	<%= f.label :asset, 'File' %>
+	<%= f.file_field :asset %>
 	<%= f.submit 'Save' %>
 <% end %>

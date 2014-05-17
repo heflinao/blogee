@@ -1,7 +1,14 @@
 <div id="title">
 	<h1><%= @post.title %></h1>
-	<p id="content"><%= @post.content %></p>
-	<p id='author'>Created by: <%= @post.user.username %></p>
+	<% if @post.published_at.nil? %>
+		<span class="label label-danger">DRAFT</span>
+	<% end %>
+	<span id="content"><%= @post.content %></span>
+	<div id="asset">
+		<span class="sr-only"><%= @post.asset %></span>
+		<%= image_tag(@post.asset) %>
+	</div>
+	<span id='author'>Created by: <%= @post.user.username %></span>
 </div>
 
 <%= link_to 'Edit Post', edit_post_path(@post) %>

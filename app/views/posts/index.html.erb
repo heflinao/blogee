@@ -3,8 +3,9 @@
 <h2>Projects</h2>
 <ul>
 	<% @posts.each do |post| %>
-		<li><%= link_to post.title, post_path(post) %></li>
-		<li><%= post.author %></li>
-		<p><%= post.content %></p>
+		<li>
+			<p><%= link_to post.title, post_path(post) %></p>
+			<p><%= post.author %></p>
+			<p><%= post.content %></p>
 	<% end %>
 </ul>
